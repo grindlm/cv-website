@@ -126,7 +126,8 @@
       line-height: 1.6;
     }
     img { max-width: 100%; display: block; }
-    a { color: var(--pink-600); }
+    /* a { color: var(--pink-600); } */
+    a { color: inherit; }
     h1, h2, h3 { font-family: var(--font-heading); color: var(--pink-900); margin: 0 0 0.5em; }
     section { scroll-margin-top: 90px; } /* keeps section headings from
                                              hiding behind the sticky nav
@@ -231,6 +232,22 @@
       padding: 60px 0 50px;
       text-align: center;
     }
+    /* HEADSHOT PLACEHOLDER — a circular photo frame at the top of the
+       hero section. Right now it shows a plain silhouette icon so the
+       page looks intentional rather than "broken." To swap in your own
+       photo, see the instructions in the HTML comment right above the
+       <img> tag further down. */
+    .headshot {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--pink-100);
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+    .headshot img { width: 100%; height: 100%; object-fit: cover; }
     .hero .logo-svg-big { width: 120px; height: 120px; margin: 0 auto 18px; }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 2.9rem);
@@ -487,6 +504,25 @@
     <div class="wrap">
 
       <!--
+        HEADSHOT PLACEHOLDER
+        ---------------------------------------------------------------
+        This is a placeholder photo circle so you can see where your
+        headshot will go. To add your real photo:
+          1. Put your photo file in this same folder (next to
+             index.html) — e.g. name it "headshot.jpg".
+          2. Change the src="..." below from the placeholder data-URI
+             to your filename, e.g.: src="headshot.jpg"
+          3. Update the alt="..." text if you'd like.
+        The circle, border, and shadow are all styled by the
+        ".headshot" class up in the <style> section — resize it there
+        by changing width/height if you want a bigger or smaller photo.
+      -->
+      <div class="headshot">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Crect width='140' height='140' fill='%23ffe4f1'/%3E%3Ccircle cx='70' cy='54' r='26' fill='%23f472b6'/%3E%3Cpath d='M70 88 c-30 0 -48 18 -48 40 l96 0 c0 -22 -18 -40 -48 -40Z' fill='%23f472b6'/%3E%3C/svg%3E"
+             alt="Headshot placeholder — replace with your own photo" />
+      </div>
+
+      <!--
         BIG LOGO — Horseshoe Magnet
         ---------------------------------------------------------------
         How this shape is built, for anyone curious or who wants to
@@ -509,24 +545,24 @@
       <div class="logo-svg-big">
         <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horseshoe magnet logo">
           <!-- decorative field-line dots above each pole -->
-          <g stroke="#f9a8d4" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8">
-            <path d="M30 4 Q22 -4 14 4" stroke-dasharray="1 5"/>
-            <path d="M70 4 Q78 -4 86 4" stroke-dasharray="1 5"/>
-          </g>
+          <!-- <g stroke="#f9a8d4" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"> -->
+            <!-- <path d="M30 4 Q22 -4 14 4" stroke-dasharray="1 5"/> -->
+            <!-- <path d="M70 4 Q78 -4 86 4" stroke-dasharray="1 5"/> -->
+          <!-- </g> -->
           <!-- the horseshoe body -->
           <path d="M30 14 L30 66 A20 20 0 0 0 70 66 L70 14"
                 stroke="#ec4899" stroke-width="17" stroke-linecap="round" fill="none"/>
           <!-- a thin highlight stroke to give the metal/enamel a bit of shine -->
-          <path d="M30 14 L30 66 A20 20 0 0 0 70 66 L70 14"
-                stroke="#f9a8d4" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <!-- <path d="M30 14 L30 66 A20 20 0 0 0 70 66 L70 14" -->
+                <!-- stroke="#f9a8d4" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.6"/> -->
           <!-- pole caps (north) -->
           <rect x="19" y="4" width="22" height="18" rx="4" fill="#c7ccd1"/>
           <rect x="19" y="4" width="22" height="6" rx="3" fill="#e7eaee"/>
-          <text x="30" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#3a3f44">N</text>
+          <!-- <text x="30" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#3a3f44">N</text> -->
           <!-- pole caps (south) -->
           <rect x="59" y="4" width="22" height="18" rx="4" fill="#c7ccd1"/>
           <rect x="59" y="4" width="22" height="6" rx="3" fill="#e7eaee"/>
-          <text x="70" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#3a3f44">S</text>
+          <!-- <text x="70" y="17" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#3a3f44">S</text> -->
         </svg>
       </div>
 
@@ -543,10 +579,14 @@
 
       <!-- ── QUICK CONTACT LINKS ── -->
       <div class="contact-row">
-        <a class="contact-pill" href="mailto:matthew.p.grindle@gmail.com">✉️ matthew.p.grindle@gmail.com</a>
-        <a class="contact-pill" href="tel:+17656038237">📞 (513) 437-6332</a>
-        <span class="contact-pill">📍 Pittsburgh, PA</span>
-        <a class="contact-pill" href="https://www.linkedin.com/in/matthew-p-grindle" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a class="contact-pill" href="mailto:matthew.p.grindle@gmail.com">matthew.p.grindle@gmail.com</a>
+        <a class="contact-pill" href="tel:+15134376332">(513) 437-6332</a>
+        <span class="contact-pill">Pittsburgh, PA</span>
+      </div>
+      <div class="contact-row">
+        <a class="contact-pill" href="https://www.linkedin.com/in/matthew-p-grindle" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="contact-pill" target="_blank" href="https://orcid.org/0009-0009-7168-2436" rel="noopener">ORCID</a>
+        <a class="contact-pill" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=nouXqKEAAAAJ&hl=en&oi=sra">Google Scholar</a>
       </div>
 
       <!-- ── CALL-TO-ACTION BUTTONS ──
@@ -556,7 +596,7 @@
            from an element any time if you'd rather it not do that. -->
       <div class="cta-row">
         <a class="btn btn-primary magnet-btn" href="MatthewGrindle-CV.pdf" download>Download Full CV (PDF)</a>
-        <a class="btn btn-outline magnet-btn" href="mailto:matthew.p.grindle@gmail.com">Get in Touch</a>
+        <!-- <a class="btn btn-outline magnet-btn" href="mailto:matthew.p.grindle@gmail.com">Get in Touch</a> -->
       </div>
     </div>
   </section>
@@ -570,21 +610,21 @@
        ================================================================ -->
   <section class="section-pad" id="about">
     <div class="wrap">
-      <div class="eyebrow">About</div>
+      <!-- <div class="eyebrow">About</div> -->
       <h2 class="section-title">Professional Summary</h2>
       <div class="card">
         <!-- ── SUMMARY PARAGRAPH — edit here ── -->
         <p>
-          Physical chemist and nuclear magnetic resonance (NMR) specialist applying
-          low-field NMR spectroscopy and magnetic resonance imaging to enhanced oil
-          recovery (EOR) and subsurface fluid–rock interactions. As an ORISE
-          postdoctoral fellow at the National Energy Technology Laboratory, develops
-          experimental and analytical methods for high-pressure studies of CO₂,
+          I am a physical chemist specializing in nuclear magnetic resonance (NMR) spectroscopy.
+          In my current position as a postdoctoral fellow at the National Energy Technology Laboratory (NETL),
+          I apply low-field NMR spectroscopy and Magnetic Resonance Imaging (MRI) 
+          to Enhanced Oil Recovery (EOR) research. 
+          I use my skills to develop experimental and analytical methods for high-pressure studies of CO<sub>2</sub>,
           natural gas, water, and surfactant injection in unconventional reservoir
-          rocks, including shales, carbonates, and caprocks. Experienced in
-          quantifying multiphase fluid saturation, pore structure, wettability, and
-          transport behavior, with a record of cross-disciplinary research,
-          conference publication, mentoring, and laboratory instruction.
+          rocks, including shales, carbonates, and caprocks. My record of cross-disciplinary research,
+          conference publication, mentoring, and laboratory instruction inform my perspective 
+          in developing methodology for quantifying multiphase fluid saturation, pore structure, 
+          wettability, and transport behavior. 
         </p>
 
         <h3 style="margin-top:24px; font-size:1.05rem;">Core Expertise</h3>
@@ -619,7 +659,7 @@
        ================================================================ -->
   <section class="section-pad" id="experience">
     <div class="wrap">
-      <div class="eyebrow">Career</div>
+      <!-- <div class="eyebrow">Career</div> -->
       <h2 class="section-title">Professional Experience</h2>
 
       <div class="timeline">
@@ -628,7 +668,7 @@
         <div class="timeline-item">
           <div class="timeline-date">2025 – Present</div>
           <div class="timeline-role">Postdoctoral Fellow</div>
-          <div class="timeline-org">National Energy Technology Laboratory (NETL), US DOE · Pittsburgh, PA</div>
+          <div class="timeline-org"><a target="_blank" rel="noopener" href="https://www.netl.doe.gov">National Energy Technology Laboratory (NETL)</a>, US DOE · Pittsburgh, PA</div>
           <ul>
             <li>Serve as the NMR subject-matter expert for petroleum, geologic materials, and subsurface-energy research.</li>
             <li>Develop low-field NMR and MRI methods to quantify porosity, pore-size distributions, fluid saturation, wettability, and multiphase fluid movement in unconventional reservoir samples.</li>
@@ -727,7 +767,7 @@
        ================================================================ -->
   <section class="section-pad" id="education">
     <div class="wrap">
-      <div class="eyebrow">Academics</div>
+      <!--<div class="eyebrow">Academics</div>-->
       <h2 class="section-title">Education</h2>
 
       <div class="grid-2">
@@ -737,9 +777,10 @@
           <div class="timeline-role">PhD, Chemistry</div>
           <div class="timeline-org">Miami University · Oxford, OH</div>
           <p style="font-size:0.92rem; color:var(--ink-soft); margin-top:10px;">
-            Dissertation: <em>Structural Dynamics of Inorganic Complexes and
+            Dissertation: <a target="_blank" rel="noopener" href="https://www.proquest.com/openview/c94d30fa8ac25408d4b1f744f9037c97/1?pq-origsite=gscholar&cbl=18750&diss=y">
+            <em>Structural Dynamics of Inorganic Complexes and
             Chaperone Proteins Investigated Through NMR Spectroscopy and
-            Molecular Dynamics</em>
+            Molecular Dynamics</em></a>
           </p>
         </div>
 
@@ -763,42 +804,51 @@
        ================================================================ -->
   <section class="section-pad" id="publications">
     <div class="wrap">
-      <div class="eyebrow">Research</div>
+      <!--<div class="eyebrow">Research</div>-->
       <h2 class="section-title">Publications</h2>
 
       <div class="entry-list">
         <div class="entry">
           <div class="entry-date">2026</div>
           <div class="entry-body">
-            <div class="entry-title">Enhanced Oil Recovery Effects of Adding Non-Ionic Surfactants During CO₂ Huff-and-Puff</div>
+            <div class="entry-title"><a target="_blank" rel="noopener" href="https://onepetro.org/URTECONF/proceedings-abstract/26URTC/26URTC/800579">
+              Enhanced Oil Recovery Effects of Adding Non-Ionic Surfactants During CO₂ Huff-and-Puff</a></div>
             <div class="entry-meta">M. P. Grindle, D. Tapriyal, L. Burrows, and A. Goodman · Unconventional Resources Technology Conference (URTeC), Houston, TX</div>
           </div>
         </div>
         <div class="entry">
           <div class="entry-date">2026</div>
           <div class="entry-body">
-            <div class="entry-title">Comparing Huff-N-Puff Oil Recovery in Unconventional Shale Cores with CO₂ Alone Against Low Concentration Solution of 2EH-PO5-EO10 in CO₂ Using NMR Spectroscopy</div>
+            <div class="entry-title"><a target="_blank" rel="noopener" href="https://doi.org/10.2118/231513-MS">
+              Comparing Huff-N-Puff Oil Recovery in Unconventional Shale Cores with CO₂ Alone Against Low Concentration Solution of 2EH-PO5-EO10 in CO₂ Using NMR Spectroscopy
+            </a></div>
             <div class="entry-meta">M. P. Grindle, D. Tapriyal, L. C. Burrows, R. Enick, and A. Goodman · SPE Improved Oil Recovery Conference, Tulsa, OK</div>
           </div>
         </div>
         <div class="entry">
           <div class="entry-date">2024</div>
           <div class="entry-body">
-            <div class="entry-title">NMR Observation of Three Interconverting Structures in Tp<sup>Ph,Me</sup> Cobalt(II) Nitrate</div>
+            <div class="entry-title"><a target="_blank" rel="noopener" href="https://doi.org/10.1002/ejic.202400775">
+              NMR Observation of Three Interconverting Structures in Tp<sup>Ph,Me</sup> Cobalt(II) Nitrate
+            </a></div>
             <div class="entry-meta">M. P. Grindle, V. Batra, and D. L. Tierney · European Journal of Inorganic Chemistry</div>
           </div>
         </div>
         <div class="entry">
           <div class="entry-date">2023</div>
           <div class="entry-body">
-            <div class="entry-title">Field- and Temperature-Dependent Paramagnetic Relaxation Enhancements in Co(II) Trispyrazolylmethanes</div>
+            <div class="entry-title"><a target="_blank" rel="noopener" href="https://doi.org/10.1021/acs.inorgchem.3c02028">
+              Field- and Temperature-Dependent Paramagnetic Relaxation Enhancements in Co(II) Trispyrazolylmethanes
+            </a></div>
             <div class="entry-meta">N. D. Kumarage, A. R. Marts, M. P. Grindle, J. C. Kaine, L. A. Crandall, W.-Y. Chen, C. J. Ziegler, and D. L. Tierney · Inorganic Chemistry</div>
           </div>
         </div>
         <div class="entry">
           <div class="entry-date">2021</div>
           <div class="entry-body">
-            <div class="entry-title">Structural Communication between the E. coli Chaperones DnaK and Hsp90</div>
+            <div class="entry-title"><a target="_blank" rel="noopener" href="https://doi.org/10.3390/ijms22042200">
+              Structural Communication between the E. coli Chaperones DnaK and Hsp90
+            </a></div>
             <div class="entry-meta">M. P. Grindle, B. Carter, J. P. Alao, K. Connors, R. Tehver, and A. N. Kravats · International Journal of Molecular Sciences</div>
           </div>
         </div>
@@ -815,7 +865,7 @@
        ================================================================ -->
   <section class="section-pad" id="presentations">
     <div class="wrap">
-      <div class="eyebrow">Speaking</div>
+      <!-- <div class="eyebrow">Speaking</div> -->
       <h2 class="section-title">Selected Presentations</h2>
 
       <div class="entry-list">
@@ -888,7 +938,7 @@
        ================================================================ -->
   <section class="section-pad" id="awards">
     <div class="wrap">
-      <div class="eyebrow">Recognition</div>
+      <!-- <div class="eyebrow">Recognition</div> -->
       <h2 class="section-title">Awards &amp; Leadership</h2>
 
       <div class="entry-list" style="margin-bottom: 46px;">
@@ -969,7 +1019,7 @@
           <rect x="60" y="3" width="20" height="15" rx="4" fill="#c7ccd1"/>
         </svg>
       </div>
-      <h2 style="margin-bottom:10px;">Let's connect</h2>
+      <h2 style="margin-bottom:10px;">Let's precess</h2>
       <p style="color:var(--ink-soft); max-width:480px; margin:0 auto 24px;">
         Open to conversations about NMR method development, subsurface energy
         research, and physical chemistry.
@@ -980,7 +1030,7 @@
         <a class="contact-pill" href="https://www.linkedin.com/in/matthew-p-grindle" target="_blank" rel="noopener">🔗 LinkedIn</a>
       </div>
       <div class="copyright">
-        © <span id="year"></span> Matthew P. Grindle. Built with a little magnetic attraction.
+        © <span id="year"></span> Matthew P. Grindle. <span id="magnetPun">Built with a little magnetic attraction.</span>
       </div>
     </div>
   </footer>
@@ -1038,6 +1088,25 @@
     //    edit it every January.
     // ----------------------------------------------------------------
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ----------------------------------------------------------------
+    // 4) RANDOM MAGNET PUN (footer line)
+    //    Picks one line at random from the list below every time the
+    //    page loads, and drops it into the <span id="magnetPun"> in
+    //    the footer.
+    //
+    //    HOW TO ADD YOUR OWN JOKES/PUNS:
+    //    Just add a new line inside the quotes below, following the
+    //    same pattern — text in quotes, followed by a comma. Delete a
+    //    line the same way. You can have as many or as few as you like.
+    // ----------------------------------------------------------------
+    const magnetPuns = [
+      "Built with a little magnetic attraction.",
+    ];
+    const magnetPunEl = document.getElementById('magnetPun');
+    if (magnetPunEl && magnetPuns.length) {
+      magnetPunEl.textContent = magnetPuns[Math.floor(Math.random() * magnetPuns.length)];
+    }
   </script>
 
 </body>
